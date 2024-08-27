@@ -1,10 +1,12 @@
 #include <stdio.h>
 
 double soma(double a, double b);
+double subtracao(double a, double b);
+double multiplicacao(double a, double b);
 
 int main() {
 
-    int escolha = 0;
+    int escolha;
     double A = 0, B = 0, R = 0;
 
     printf("Escolha uma operacao:\n");
@@ -21,22 +23,46 @@ int main() {
     printf("10. Equacao de Segundo Grau\n");
 
     scanf("%d",&escolha);
-    if(escolha == 1)
 
-    {
+    if(escolha == 1){
         printf("informe os numeros que deseja somar\n");
         scanf("%lf\n%lf", &A, &B);
         R = soma(A,B);
         printf("o valor da soma eh %.5lf",R);
+    } else if (escolha == 2) {
+        printf("informe os numeros que deseja subtrair\n");
+        scanf("%lf\n%lf", &A, &B);
+        R = subtracao(A,B);
+        printf("o valor da subtracao eh %.5lf",R);
+    } else if (escolha == 3) {
+        printf("informe os numeros que deseja multiplicar\n");
+        scanf("%lf\n%lf", &A, &B);
+        R = multiplicacao(A,B);
+        printf("o valor da multiplicacao eh %.5lf",R);
     }
 
     return 0;
 }
 
-double soma(double a, double b) {
-
-    double R = 0;
+double soma(double a, double b){
+    double R;
     R = a+b;
 
     return(R);
 }
+
+double subtracao(double a, double b){
+    double R;
+    R = a-b;
+
+    return(R);
+}
+
+double multiplicacao(double a, double b,){
+    double R;
+    R = a*b;
+
+    return(R);
+}
+
+
