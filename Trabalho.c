@@ -3,7 +3,7 @@
 double soma(double a, double b);
 double subtracao(double a, double b);
 double multiplicacao(double a, double b);
-
+double divisao(double a, double b);
 int main() {
 
     int escolha;
@@ -28,17 +28,22 @@ int main() {
         printf("informe os numeros que deseja somar\n");
         scanf("%lf\n%lf", &A, &B);
         R = soma(A,B);
-        printf("o valor da soma eh %.5lf",R);
+        printf("o valor da soma e %.5lf",R);
     } else if (escolha == 2) {
         printf("informe os numeros que deseja subtrair\n");
         scanf("%lf\n%lf", &A, &B);
         R = subtracao(A,B);
-        printf("o valor da subtracao eh %.5lf",R);
+        printf("o valor da subtracao e %.5lf",R);
     } else if (escolha == 3) {
         printf("informe os numeros que deseja multiplicar\n");
         scanf("%lf\n%lf", &A, &B);
         R = multiplicacao(A,B);
-        printf("o valor da multiplicacao eh %.5lf",R);
+        printf("o valor da multiplicacao e %.5lf",R);
+    }  else if (escolha == 4) {
+        printf("informe os numeros que deseja dvidir\n");
+        scanf("%lf\n%lf", &A, &B);
+        R = divisao(A,B);
+        printf("o valor da divisao e %.5lf",R);
     }
 
     return 0;
@@ -58,11 +63,17 @@ double subtracao(double a, double b){
     return(R);
 }
 
-double multiplicacao(double a, double b,){
+double multiplicacao(double a, double b){
     double R;
     R = a*b;
 
     return(R);
 }
 
+double divisao(double a, double b){
+    double R;
+    R = a/b;
+
+    return(R);
+}
 
