@@ -5,6 +5,7 @@ double subtracao(double a, double b);
 double multiplicacao(double a, double b);
 double divisao(double a, double b);
 double potenciacao(double ba, int exp);
+double raiz_quadrada(double a);
 
 int flag = 0;
 
@@ -30,7 +31,9 @@ int main() {
 
     scanf("%d",&escolha);
 
-    if(escolha == 1){
+    if(escolha == 0) {
+        printf("saindo.");
+    } else if(escolha == 1){
         printf("sua escolha foi soma\n");
         printf("informe os numeros que deseja somar\n");
         scanf("%lf\n%lf", &A, &B);
@@ -59,8 +62,7 @@ int main() {
           }
           else
           {
-
-          printf("Nao e possivel dividir um numero por zero\n\n");
+            printf("Nao e possivel dividir um numero por zero\n\n");
           }
     } else if (escolha == 5) {
         printf("sua escolha foi potenciacao\n");
@@ -70,6 +72,19 @@ int main() {
         scanf("%d", &E);
         R = potenciacao(A,E);
         printf("o valor da potenciacao e %.5lf\n\n",R);
+    } else if (escolha == 6) {
+        printf("sua escolha foi raiz quadrada\n");
+        printf("informe o numero que deseja descobrir a raiz quadrada\n");
+        scanf("%lf", &A);
+        R = raiz_quadrada (A);
+           if(R != -1 )
+           {
+             printf("a raiz quadrada do numero escolhido e %.5lf\n\n",R);
+           }
+           else
+           {
+             printf("Nao existe raiz de numeros negativos\n\n");
+           }
     }
 
     } while(escolha != 0);
@@ -124,4 +139,24 @@ double potenciacao(double ba, int exp){
     }
 
     return(N);
+}
+
+double raiz_quadrada(double a){
+    double cht = 0.0;
+    double d = 0.5;
+
+    if(a < 0)
+    {
+       return(-1);
+    }
+    else if(a >= 0){
+        cht = a;
+
+    for (int i = 0; i < 100; i++)
+    {
+        cht = 0.5 * (cht + (a / cht));
+
+    }
+    return (cht);
+    }
 }
