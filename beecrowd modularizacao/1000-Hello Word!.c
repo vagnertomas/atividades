@@ -1,5 +1,7 @@
 #include <stdio.h>
-    void imprimir();
+
+void imprimir();
+
 int main() {
     
     printf("Hello World!\n");
