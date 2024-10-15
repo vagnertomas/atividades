@@ -1,26 +1,94 @@
 #include <stdio.h>
 
+int numerospares (int *V);
+int numerosimpares (int *V);
+int somadospares (int *V);
+int somadosimpares (int *V);
+int numerosprimos (int *V);
+
 int main() {
 
     int V[10];
-    int pares = 0, impares = 0, np = 0;
-    int soma1 = 0, soma2 = 0;
 
-    for(int i = 0; i < 10; i++) {
-        scanf("%d", &V[i]);
+    printf("Digite 10 numeros: \n");
+
+    for(int i = 0; i < 10; i++){
+    scanf("%d", &V[i]);
     }
-    for (int i = 0; i < 10; i++)
 
-        if (V[i] % 2 == 0) {
-            pares++;
-        }else {
-            impares++;
-        }
+    printf("\nOs numeros pares sao: ");
+    numerospares (V);
 
-    printf("pares: %d\n", pares);
-    printf("impares: %d\n", impares);
+    printf("\n\nOs numeros impares sao: ");
+    numerosimpares (V);
+
+    printf("\n\nA soma dos numeros pares e: ");
+    somadospares (V);
+
+    printf("\n\nA soma dos numeros impares e: ");
+    somadosimpares (V);
+
+    printf("\n\nOs numeros primos sao: ");
+    numerosprimos (V);
 
 return 0;
 }
 
+int numerospares (int *V){
 
+    for(int i = 0; i < 10; i++)
+      if(V[i] % 2 == 0){
+      printf("%d ", V[i]);
+    }
+
+}
+
+int numerosimpares (int *V){
+
+    for(int i = 0; i < 10; i++)
+      if(V[i] % 2 != 0){
+      printf("%d ", V[i]);
+    }
+
+}
+
+int somadospares (int *V){
+
+    int soma1 = 0;
+
+    for(int i = 0; i < 10; i++)
+      if(V[i] % 2 == 0){
+      soma1 += V[i];
+    }
+      printf("%d ", soma1);
+}
+
+int somadosimpares (int *V){
+
+    int soma2 = 0;
+
+    for(int i = 0; i < 10; i++)
+      if(V[i] % 2 != 0){
+      soma2 += V[i];
+    }
+      printf("%d ", soma2);
+}
+
+int numerosprimos (int *V){
+
+    for (int i = 0; i < 10; i++){
+
+    int b = 0;
+
+    for (int a = 1; a <= V[i]; a++){
+        if (V[i] % a == 0){
+             b++;
+        }
+    }
+
+    if (b == 2){
+      printf("%d ", V[i]);
+    }
+
+   }
+}
