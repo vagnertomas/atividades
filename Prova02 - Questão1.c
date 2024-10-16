@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int vetordenado (int *V);
 int numerospares (int *V);
 int numerosimpares (int *V);
 int somadospares (int *V);
@@ -16,7 +17,10 @@ int main() {
     scanf("%d", &V[i]);
     }
 
-    printf("\nOs numeros pares sao: ");
+    printf("\nVetor ordenado: ");
+    vetordenado (V);
+
+    printf("\n\nOs numeros pares sao: ");
     numerospares (V);
 
     printf("\n\nOs numeros impares sao: ");
@@ -32,6 +36,23 @@ int main() {
     numerosprimos (V);
 
 return 0;
+}
+
+int vetordenado (int *V){
+
+    int aux = 0;
+
+    for (int i = 0; i < 10; i++){
+       for (int a = i + 1; a < 10; a++){
+          if (V[i] > V[a]){
+             aux = V[i];
+             V[i] = V[a];
+             V[a] = aux;
+          }
+       }
+    }
+    for (int i = 0; i < 10; i++){
+         printf("%d ", V[i]);}
 }
 
 int numerospares (int *V){
@@ -58,7 +79,7 @@ int somadospares (int *V){
 
     for(int i = 0; i < 10; i++)
       if(V[i] % 2 == 0){
-      soma1 += V[i];
+        soma1 += V[i];
     }
       printf("%d ", soma1);
 }
@@ -69,7 +90,7 @@ int somadosimpares (int *V){
 
     for(int i = 0; i < 10; i++)
       if(V[i] % 2 != 0){
-      soma2 += V[i];
+        soma2 += V[i];
     }
       printf("%d ", soma2);
 }
