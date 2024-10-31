@@ -1,0 +1,27 @@
+CREATE TABLE disciplina(
+	
+    id_disciplina serial PRIMARY KEY,
+	nome varchar(20)
+	
+);
+
+CREATE TABLE professor(
+	
+	matricula serial PRIMARY KEY,
+	telefone varchar (20),
+	cpf bigint,
+	nome varchar (20),
+	data_nasc varchar (20),
+	endereço varchar (20)
+
+);
+
+SELECT * FROM disciplina ORDER BY disciplina;
+
+INSERT INTO disciplina (nome) values ('portugues');
+INSERT INTO disciplina (nome) values ('matematica');
+INSERT INTO disciplina (nome) values ('ingles');
+INSERT INTO disciplina (nome) values ('geografia');
+INSERT INTO disciplina (nome) values ('biologia');
+
+SELECT * FROM professor ORDER BY professor;
