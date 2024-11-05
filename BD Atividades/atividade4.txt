@@ -1,0 +1,48 @@
+CREATE TABLE autores(
+
+    id_autor serial PRIMARY KEY,
+    nome varchar (50),
+	data_nascimento date,
+	nacionalidade varchar(50)
+
+)
+
+SELECT * FROM autores;
+
+CREATE TABLE livros(
+
+    id_livro serial PRIMARY KEY,
+    titulo varchar(50),
+    id_autor,
+	data_publicação date,
+	preço decimal
+
+)
+
+SELECT * FROM livros;
+
+CREATE TABLE clientes (
+
+    id_cliente serial PRIMARY KEY,
+    nome varchar(50),
+    email varchar(50),
+    telefone varchar(15),
+    data_cadastro date
+
+
+
+)
+
+
+CREATE TABLE vendas (
+
+
+
+)
+
+
+CREATE TABLE itens_vendas(
+
+
+
+)
