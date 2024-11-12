@@ -1,16 +1,15 @@
 CREATE TABLE autores(
 
     id_autor serial PRIMARY KEY,
-    nome varchar (50),
+    nome_autor varchar (50),
 	data_nascimento date,
 	nacionalidade varchar(30)
 )
-INSERT INTO autores (nome, data_nascimento, nacionalidade) VALUES ('João', '29/07/1968', 'Brasileiro');
-INSERT INTO autores (nome, data_nascimento, nacionalidade) VALUES ('Lucas', '16/03/1973', 'Brasileiro');
-INSERT INTO autores (nome, data_nascimento, nacionalidade) VALUES ('Rafael', '23/11/1965', 'Brasileiro');
-INSERT INTO autores (nome, data_nascimento, nacionalidade) VALUES ('Pedro', '07/02/1982', 'Brasileiro');
-INSERT INTO autores (nome, data_nascimento, nacionalidade) VALUES ('José', '03/12/1957', 'Brasileiro');
-
+INSERT INTO autores (nome_autor, data_nascimento, nacionalidade) VALUES ('João', '29/07/1968', 'Brasileiro');
+INSERT INTO autores (nome_autor, data_nascimento, nacionalidade) VALUES ('Lucas', '16/03/1973', 'Brasileiro');
+INSERT INTO autores (nome_autor, data_nascimento, nacionalidade) VALUES ('Rafael', '23/11/1965', 'Brasileiro');
+INSERT INTO autores (nome_autor, data_nascimento, nacionalidade) VALUES ('Pedro', '07/02/1982', 'Brasileiro');
+INSERT INTO autores (nome_autor, data_nascimento, nacionalidade) VALUES ('José', '03/12/1957', 'Brasileiro');
 
 CREATE TABLE livros(
 
@@ -31,16 +30,16 @@ INSERT INTO livros (titulo, idfk_autor, data_publicação, preço, estoque) VALU
 CREATE TABLE clientes(
 
     id_cliente serial PRIMARY KEY,
-    nome varchar(50),
+    nome_cliente varchar(50),
     email varchar(50),
     telefone varchar(15),
     data_cadastro date
 )
-INSERT INTO clientes (nome, email, telefone, data_cadastro) VALUES ('Gabriel Refatti', 'reffati@gmail.com', '(46)99782-9812', '22/08/2023');
-INSERT INTO clientes (nome, email, telefone, data_cadastro) VALUES ('Domini Eduardo', 'domini@gmail.com', '(46)99302-3721', '17/04/2023');
-INSERT INTO clientes (nome, email, telefone, data_cadastro) VALUES ('Arthur Siega', 'siega@gmail.com', '(46)98449-7621', '03/10/2023');
-INSERT INTO clientes (nome, email, telefone, data_cadastro) VALUES ('Gustavo Breier', 'breier@gmail.com', '(46)99406-2189', '12/07/2023');
-INSERT INTO clientes (nome, email, telefone, data_cadastro) VALUES ('Vagner Tomas', 'vagner@gmail.com', '(46)92001-3567', '27/09/2023');
+INSERT INTO clientes (nome_cliente, email, telefone, data_cadastro) VALUES ('Gabriel Refatti', 'reffati@gmail.com', '(46)99782-9812', '22/08/2023');
+INSERT INTO clientes (nome_cliente, email, telefone, data_cadastro) VALUES ('Domini Eduardo', 'domini@gmail.com', '(46)99302-3721', '17/04/2023');
+INSERT INTO clientes (nome_cliente, email, telefone, data_cadastro) VALUES ('Arthur Siega', 'siega@gmail.com', '(46)98449-7621', '03/10/2023');
+INSERT INTO clientes (nome_cliente, email, telefone, data_cadastro) VALUES ('Gustavo Breier', 'breier@gmail.com', '(46)99406-2189', '12/07/2023');
+INSERT INTO clientes (nome_cliente, email, telefone, data_cadastro) VALUES ('Vagner Tomas', 'vagner@gmail.com', '(46)92001-3567', '27/09/2023');
 
 
 CREATE TABLE vendas(
@@ -79,9 +78,13 @@ SELECT * FROM vendas;
 SELECT * FROM itens_vendas;
 
 
-SELECT titulo, nome FROM livros
+SELECT titulo, nome_autor FROM livros
 INNER JOIN autores ON livros.idfk_autor = autores.id_autor;
 
 
-SELECT nome, titulo, data_venda, quantidade, valor_total FROM vendas
-INNER JOIN clientes ON vendas.idfk_clientes = clientes.id_clientes
+SELECT idfk_cliente, nome_cliente, data_venda, titulo, nome_autor, preço FROM vendas
+INNER JOIN clientes ON id_cliente = idfk_cliente
+INNER JOIN itens_vendas ON idfk_venda = id_venda
+INNER JOIN livros ON idfk_livro = id_livro
+INNER JOIN autores ON idfk_autor = id_autor
+where idfk_cliente = 5
