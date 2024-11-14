@@ -1,2 +1,0 @@
-SELETC     FROM tabela1
-inner join tabela2 on idfk = id;
