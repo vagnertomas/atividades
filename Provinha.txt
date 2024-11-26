@@ -1,0 +1,61 @@
+CREATE TABLE Clientes(
+    ID_Cliente SERIAL PRIMARY KEY,
+	NomeCliente varchar(20),
+	Cpf bigint,
+	DataNascimento int,
+	Estado varchar(20),
+	Cidade varchar(20),
+	Rua varchar(20),
+	Numero int,
+	CEP bigint
+);
+
+DROP TABlE Clientes;
+
+
+CREATE TABLE Pedido(
+    id_pedido SERIAL PRIMARY KEY,
+	DataCriacao int,
+	Status varchar(15),
+	Cliente_IDFK FOR KEY
+);
+
+DROP TABlE Pedido;
+
+
+CREATE TABLE ItemPedido(
+    ID_ItemPedido SERIAL PRIMARY KEY,
+	Quantidade_Compra int,
+    ValorTotal numeric(10,2),
+	Pedido_IDFK FOR KEY,
+	Produto_IDFK FOR KEY 
+);
+	
+DROP TABlE ItemPedido;
+
+
+CREATE TABLE Produto(
+    ID_Produto SERIAL PRIMARY KEY,
+	Nome varchar(20),
+	Descricao(25),
+	PrecoUnitario numeric(10,2),
+	QuantidadeEstoque int,
+	Fornecedor_IDFK FOR KEY
+);
+
+DROP TABLE Produto;
+
+
+CREATE TABLE Fornecedor(
+    ID_Fornecedor SERIAL PRIMARY KEY,
+	Nome varchar(20),
+	CNPJ bigint,
+	Telefone bigint,
+	Rua varchar(20),
+	Numero int,
+	Estado varchar(20),
+	CEP bigint,
+	Cidade varchar(20)
+);
+
+DROP TABLE Fornecedor;
